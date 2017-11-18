@@ -11,6 +11,11 @@ import java.util.ArrayList;
 
 public class ClientApp {
 
+	/*
+	 * This is an example comment
+	 * for the github tutorial.
+	 */
+	
 	private User _currentUser;
 	private ArrayList<User> _userList;
 
