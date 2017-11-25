@@ -47,7 +47,6 @@ public class User implements Serializable
 		return copyOfEmail;
 	}
 
-	public void setEmail(String _email) {
 	/**
 	 * 
 	 * @param _email
