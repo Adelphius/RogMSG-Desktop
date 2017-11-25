@@ -7,6 +7,7 @@
 
 package rogMsg;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ClientApp {
@@ -46,6 +47,12 @@ public class ClientApp {
 
 	public ClientApp() {
 		// TODO Auto-generated constructor stub	
+	}
+	
+	
+	public static void main (String args[]) throws IOException{
+		SocketClient sc = new SocketClient();
+		sc.requestConnection();
 	}
 	
 	

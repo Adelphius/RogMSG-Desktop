@@ -8,7 +8,7 @@ import java.net.UnknownHostException;
 
 public class SocketClient {
 	
-	private String serverAddress = "192.168.1.10"; 	//the ip of the testing server
+	private String serverAddress = "127.0.0.1"; 	//the ip of the testing server
 	private int serverPort = 1245;				//may want to change the way we pass the server info in the future
 	
 	/*
