@@ -2,7 +2,8 @@ package rogMsg;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
+public class User implements Serializable
+{
 	/**
 	 * Notice this class implements Serializable. 
 	 * This allows use to serialize an object into 
@@ -15,36 +16,70 @@ public class User implements Serializable {
 	private String _name;
 	private String _email;
 	private int _idNo;
-	
+
 	//the following are getters/setter for the variables above
-	public String getName() {
+	/**
+	 * 
+	 * @return
+	 */
+	public String getName()
+	{
 		String copyOfName = this._name;
 		return copyOfName;
 	}
 
-	public void setName(String _name) {
+	/**
+	 * 
+	 * @param _name
+	 */
+	public void setName(String _name)
+	{
 		this._name = _name;
 	}
 
-	public String getEmail() {
+	/**
+	 * 
+	 * @return
+	 */
+	public String getEmail()
+	{
 		String copyOfEmail = this._email;
 		return copyOfEmail;
 	}
 
-	public void setEmail(String _email) {
+	/**
+	 * 
+	 * @param _email
+	 */
+	public void setEmail(String _email)
+	{
 		this._email = _email;
 	}
 
-	public int getIDNo() {
+	/**
+	 * 
+	 * @return
+	 */
+	public int getIDNo()
+	{
 		int IDCopy = this._idNo;
 		return IDCopy;
 	}
 
-	public void setIDNo(int _IDno) {
+	/**
+	 * 
+	 * @param _IDno
+	 */
+	public void setIDNo(int _IDno)
+	{
 		this._idNo = _IDno;
 	}
-	
-	public User() {
+
+	/**
+	 * 
+	 */
+	public User()
+	{
 		// TODO Auto-generated constructor stub
 	}
 }
