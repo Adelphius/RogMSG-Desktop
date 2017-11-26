@@ -9,7 +9,8 @@ package rogMsg;
 
 import java.util.ArrayList;
 
-public class ClientApp {
+public class ClientApp
+{
 
 	private User _currentUser;
 	private ArrayList<User> _userList;
@@ -44,8 +45,14 @@ public class ClientApp {
 	}
 
 
-	public ClientApp() {
-		// TODO Auto-generated constructor stub	
+	public ClientApp()
+	{
+		// TODO Auto-generated constructor stub
+	}
+	
+	public static void main(String[] args)
+	{
+		ROGMsgGui.launch(ROGMsgGui.class);
 	}
 	
 	
