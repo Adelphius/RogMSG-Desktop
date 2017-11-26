@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class ClientApp
 {
+  
 	private User _currentUser;
 	private ArrayList<User> _userList;
 
@@ -61,11 +62,14 @@ public class ClientApp
 
 	}
 
-	/**
-	 * 
-	 */
-	public ClientApp() 
+	public ClientApp()
 	{
-		// TODO Auto-generated constructor stub	
+		// TODO Auto-generated constructor stub
 	}
+	
+	public static void main(String[] args)
+	{
+		ROGMsgGui.launch(ROGMsgGui.class);
+	}
+  
 }

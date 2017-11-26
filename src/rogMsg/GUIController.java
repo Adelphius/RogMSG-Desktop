@@ -27,11 +27,14 @@ public class GUIController
 	{
 		if(e.getSource().equals(submitButton))
 		{
-			actionTarget.setText("Not implemented yet.");
+//			actionTarget.setText("Not implemented yet.");
+			ChatWindow cw = new ChatWindow();
+			Stage s = (Stage)submitButton.getScene().getWindow();
+			s.close();
 		}
 		else if(e.getSource().equals(registerButton))
 		{
-//			actiontarget.setText("switch to register screen now");
+//			actionTarget.setText("switch to register screen now");
 			Parent p = FXMLLoader.load(getClass().getResource("RegisterScreenFXML.fxml"));
 			Scene s = new Scene(p, 400, 375);
 			Stage ps = (Stage)registerButton.getScene().getWindow();
@@ -47,5 +50,45 @@ public class GUIController
 			ps.setTitle("ROGMsg - Login");
 			ps.setScene(s);
 		}
+	}
+	
+	public TextField getUserName()
+	{
+		return userName;
+	}
+
+	public void setUserName(TextField userName)
+	{
+		this.userName = userName;
+	}
+
+	public TextField getEmail()
+	{
+		return email;
+	}
+
+	public void setEmail(TextField email)
+	{
+		this.email = email;
+	}
+
+	public PasswordField getPasswordField()
+	{
+		return passwordField;
+	}
+
+	public void setPasswordField(PasswordField passwordField)
+	{
+		this.passwordField = passwordField;
+	}
+
+	public PasswordField getConfirmPassField()
+	{
+		return confirmPassField;
+	}
+
+	public void setConfirmPassField(PasswordField confirmPassField)
+	{
+		this.confirmPassField = confirmPassField;
 	}
 }
