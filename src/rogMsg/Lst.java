@@ -21,13 +21,16 @@ public class Lst
 
 	/**
 	 * sets the name of the Lst object
-	 * @param _name is the desired new name, length >= 1
+	 * @param name is the desired new name, length >= 1
 	 */
-	public void setName(String _name)
+	public void setName(String name)
 	{
-		this._name = _name;
+		if (name != null && name.length() >= 1)
+		{
+			this._name = name;
+		}
 	}
-	
+
 	/**
 	 * gets a list of users that can view the Lst object from the server
 	 */
@@ -43,7 +46,10 @@ public class Lst
 	 */
 	public void setAudience(ArrayList<User> _audience)
 	{
-		this._audience = _audience;
+		if (_audience != null)
+		{
+			this._audience = _audience;
+		}
 	}
 
 	/**
@@ -58,28 +64,37 @@ public class Lst
 
 	/**
 	 * is in charge of sending a list of strings to the server
-	 * @param _items the list you want to send
+	 * @param items the list you want to send, non-null
 	 */
-	public void setItems(ArrayList<String> _items)
+	public void setItems(ArrayList<String> items)
 	{
-		this._items = _items;
+		if (items != null)
+		{
+			this._items = items;
+		}
 	}
 
 	/**
 	 * adds a string called item to the list 
-	 * @param item the desired item you want to add, non-null, length > 0
+	 * @param item the desired item you want to add, non-null, length > 0 (not including white space)
 	 */
 	public void addItem(String item)
 	{
+		if (item != null && item.trim().length() >= 1)
+		{
 
+		}
 	}
 
 	/**
 	 * removes the item from the list
-	 * @param item the desired item, must be non-null, length > 0
+	 * @param item the desired item, must be non-null, length > 0 (not including white space)
 	 */
 	public void remove(String item)
 	{
+		if (item != null && item.trim().length() >= 1)
+		{
 
+		}
 	}
 }

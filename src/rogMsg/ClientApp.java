@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class ClientApp
 {
-  
+
 	private User _currentUser;
 	private ArrayList<User> _userList;
 
@@ -30,7 +30,10 @@ public class ClientApp
 	 */
 	public void setCurrentUsr(User user)
 	{
-		_currentUser = user;
+		if (user != null)
+		{
+			_currentUser = user;
+		}
 	}
 
 	/**
@@ -49,7 +52,10 @@ public class ClientApp
 	 */
 	public void setUsrList(ArrayList<User> user)
 	{
-		_userList = user;
+		if (user != null)
+		{
+			_userList = user;
+		}
 	}
 
 	/**
@@ -59,17 +65,20 @@ public class ClientApp
 	 */
 	public void loginAttempt(String pass, String email)
 	{
+		if (pass != null && email != null)
+		{
 
+		}
 	}
 
 	public ClientApp()
 	{
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public static void main(String[] args)
 	{
 		ROGMsgGui.launch(ROGMsgGui.class);
 	}
-  
+
 }
