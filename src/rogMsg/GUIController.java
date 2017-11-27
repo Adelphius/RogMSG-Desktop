@@ -20,31 +20,43 @@ public class GUIController
 	@FXML private Text actionTarget;
 	@FXML private Text groupName;
 	@FXML private ScrollPane userList;
-	@FXML private TabPane announcements;
-	@FXML private TabPane extraControls;
-	@FXML private Tab lists;
-	@FXML private Tab polls;
+	@FXML private TabPane announcementsPane;
+	@FXML private ScrollPane announcements;
+	@FXML private ScrollPane lists;
+	@FXML private ScrollPane polls;
+	@FXML private TabPane extras;
+	@FXML private Tab listsTab;
+	@FXML private Tab pollsTab;
 	@FXML private Tab announcementsTab;
 	@FXML private Button submitButton;
 	@FXML private Button registerButton;
 	@FXML private Button cancelButton;
+	@FXML private Button addUserButton;
+	@FXML private Button logoutButton;
+	@FXML private Button submitMessageButton;
+	@FXML private Button newListButton;
+	@FXML private Button newPollButton;
 	@FXML private TextField userName;
 	@FXML private TextField email;
+	@FXML private TextField messageField;
 	@FXML private PasswordField passwordField;
 	@FXML private PasswordField confirmPassField;
 	
 	@FXML protected void handleButton(ActionEvent e) throws IOException 
 	{
+		/***
+		 * change this to a switch statement for handling all buttons
+		 * 
+		 */
+		
 		if(e.getSource().equals(submitButton))
 		{
-//			actionTarget.setText("Not implemented yet.");
-//			ChatWindow cw = new ChatWindow();
+//			actionTarget.setText("switch to main chat window now");
 			Parent p = FXMLLoader.load(getClass().getResource("ChatWindowFXML.fxml"));
 			Scene s = new Scene(p, 400, 375);
 			Stage ps = (Stage)submitButton.getScene().getWindow();
 			ps.setTitle("ROG-Msg - Group Name");
 			ps.setScene(s);
-//			s.close();
 		}
 		else if(e.getSource().equals(registerButton))
 		{
