@@ -77,13 +77,11 @@ public class ClientApp
 		// TODO Auto-generated constructor stub
 	}
 
-	public static void main(String[] args)
-	{
-		ROGMsgGui.launch(ROGMsgGui.class);
-	}
 	
 	public static void main (String args[]) throws IOException
   {
+		ROGMsgGui.launch(ROGMsgGui.class);
+		
 		SocketClient sc = new SocketClient();
 		sc.requestConnection();
 	}
