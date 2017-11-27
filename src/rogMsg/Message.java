@@ -19,10 +19,9 @@ public class Message implements Serializable
 	private String _audioLoc;
 
 
-	//the following are getters/setter for the variables above
 	/**
-	 * 
-	 * @return
+	 * gets the string in the message
+	 * @returns the string in the message
 	 */
 	public String getStringLoc()
 	{
@@ -31,8 +30,8 @@ public class Message implements Serializable
 	}
 
 	/**
-	 * 
-	 * @param stringLoc
+	 * sets the data for a text message to the given string
+	 * @param stringLoc string that is being passed, non-null
 	 */
 	public void setStringLoc(String stringLoc)
 	{
@@ -40,8 +39,8 @@ public class Message implements Serializable
 	}
 
 	/**
-	 * 
-	 * @return
+	 * gets the image file location to the given string
+	 * @return a string of the image file location, can be null, can be empty
 	 */
 	public String getImageLoc()
 	{
@@ -50,8 +49,8 @@ public class Message implements Serializable
 	}
 
 	/**
-	 * 
-	 * @param imageLoc
+	 * sets the image file location to the given string
+	 * @param imageLoc is the desired location of the image, must be >0
 	 */
 	public void setImageLoc(String imageLoc)
 	{
@@ -59,8 +58,8 @@ public class Message implements Serializable
 	}
 
 	/**
-	 * 
-	 * @return
+	 * gets the audio file location to the given string
+	 * @return a string of the audio file location, can be null, can be empty
 	 */
 	public String getAudioLoc()
 	{
@@ -69,8 +68,8 @@ public class Message implements Serializable
 	}
 
 	/**
-	 * 
-	 * @param audioLoc
+	 * sets the audio file location to the given string
+	 * @param audioLoc is the desired location of the audio file, must be >0
 	 */
 	public void setAudioLoc(String audioLoc)
 	{
