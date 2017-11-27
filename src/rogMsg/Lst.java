@@ -76,25 +76,25 @@ public class Lst
 
 	/**
 	 * adds a string called item to the list 
-	 * @param item the desired item you want to add, non-null, length > 0 (not including white space)
+	 * @param item the desired item you want to add, non-null, length > 0 (after removing white space from start and end of string)
 	 */
 	public void addItem(String item)
 	{
 		if (item != null && item.trim().length() >= 1)
 		{
-
+			_items.add(item);
 		}
 	}
 
 	/**
 	 * removes the item from the list
-	 * @param item the desired item, must be non-null, length > 0 (not including white space)
+	 * @param item the desired item, must be non-null, length > 0 (after removing white space from start and end of string)
 	 */
 	public void remove(String item)
 	{
 		if (item != null && item.trim().length() >= 1)
 		{
-
+			_items.remove(item);
 		}
 	}
 }
