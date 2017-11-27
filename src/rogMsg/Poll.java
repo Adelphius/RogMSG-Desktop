@@ -71,7 +71,9 @@ public class Poll
 	public void setName(String name)
 	{
 		if (name != null && name.trim().length() >= 1)
+		{
 			this._name = name;
+		}
 	}
 
 	/**
