@@ -10,7 +10,6 @@ public class Polls
 
 	/**
 	 * gets a list of polls from the server and saves them to your device.
-	 * @return
 	 */
 	public void getPolls()
 	{
@@ -40,7 +39,8 @@ public class Polls
 	{
 		if (pWAS != null)
 		{
-			return pWAS;
+			int locationInPL = _pollList.indexOf(pWAS);
+			return _pollList.get(locationInPL);
 		}
 		return null;
 	}
@@ -53,7 +53,7 @@ public class Polls
 	{
 		if (pWAS != null)
 		{
-
+			_pollList.remove(pWAS);
 		}
 	}
 }
