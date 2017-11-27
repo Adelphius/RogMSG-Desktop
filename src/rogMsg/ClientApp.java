@@ -60,6 +60,17 @@ public class ClientApp
 	{
 
 	}
+	
+	/**
+	 * 
+	 * @param name
+	 * @param email
+	 */
+	public void createUsrInstance(String name, String email)
+	{
+		
+	}
+	
 
 	/**
 	 * 
