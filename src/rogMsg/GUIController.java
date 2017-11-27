@@ -22,7 +22,8 @@ public class GUIController
 	@FXML private ScrollPane userList;
 	@FXML private TabPane announcementsPane;
 	@FXML private ScrollPane announcements;
-	@FXML private ScrollPane extraControls;
+	@FXML private ScrollPane lists;
+	@FXML private ScrollPane polls;
 	@FXML private TabPane extras;
 	@FXML private Tab listsTab;
 	@FXML private Tab pollsTab;
