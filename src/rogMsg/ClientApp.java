@@ -6,6 +6,7 @@
 
 package rogMsg;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ClientApp
@@ -80,5 +81,11 @@ public class ClientApp
 	{
 		ROGMsgGui.launch(ROGMsgGui.class);
 	}
-
+	
+	public static void main (String args[]) throws IOException
+  {
+		SocketClient sc = new SocketClient();
+		sc.requestConnection();
+	}
+	
 }
