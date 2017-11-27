@@ -34,7 +34,6 @@ public class Messaging
 	public boolean isGroup() {
 		boolean copy = _isGroup;
 		return copy;
-
 	}
 
 	/**
@@ -60,7 +59,6 @@ public class Messaging
 	{
 
 	}
-
 
 	/**
 	 * send out a notification when messages are received.
