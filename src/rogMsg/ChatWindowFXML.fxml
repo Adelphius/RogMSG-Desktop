@@ -6,34 +6,76 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<GridPane fx:controller="rogMsg.GUIController"
+<GridPane fx:controller="rogMsg.GUIController" gridLinesVisible="true"
 	xmlns:fx="http://javafx.com/fxml/1" alignment="top_left" hgap="10" vgap="10">
 	<padding><Insets top="25" bottom="10" left="25"/></padding>
 	<children>
 	<VBox GridPane.columnIndex="0">
-		<Text text="Group Name" fx:id="groupName" GridPane.columnIndex="0" GridPane.rowIndex="0" textAlignment="LEFT"
-		GridPane.columnSpan="1"/>
-		
-		<ScrollPane fx:id="userList">
-			<Label text="User 1">
-			</Label>
-		</ScrollPane>
+		<children>
+			<Text text="Group Name" fx:id="groupName" textAlignment="LEFT"/>
+			<ScrollPane fx:id="userList" fitToHeight="true" VBox.vgrow="ALWAYS">
+				<content>
+					<Label text="User 1"/>
+				</content>
+			</ScrollPane>
+			<HBox>
+				<children>
+					<Button text="Add user" fx:id="addUserButton"/>
+					<Button text="Logout" fx:id="logoutButton"/>
+				</children>
+			</HBox>
+		</children>
 	</VBox>
 	<VBox GridPane.columnIndex="1">
-		<TabPane fx:id="announcements">
-			<Tab fx:id="announcementsTab" text="Announcements">
-			</Tab>
-		</TabPane>
+		<children>
+			<TabPane fx:id="announcementsPane" TabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+				<Tab fx:id="announcementsTab" text="Announcements">
+					<ScrollPane fx:id="announcements">
+						<content>
+						</content>
+					</ScrollPane>
+				</Tab>
+			</TabPane>
+		
+			<HBox>
+				<children>
+					<TextField fx:id="messageField" text="Enter text here"/>
+					<Button text="Submit" fx:id="submitMessageButton"/>
+				</children>
+			</HBox>
+		</children>
 	</VBox>
 	<VBox GridPane.columnIndex="2">
-		<TabPane fx:id="extraControls">
-			<Tab fx:id="lists" text="Lists">
-			</Tab>
-			<Tab fx:id="polls" text="Polls">
-			</Tab>
-		</TabPane>
+		
+		<children>
+			<TabPane>
+				<Tab text="Tab 1">
+					<content>
+						<Label text="example text"/>
+					</content>
+				</Tab>
+				<Tab text="Tab 2">
+					<content>
+						<Label text="more example text"/>
+					</content>
+				</Tab>
+			</TabPane>
+		</children>
 	</VBox>
 	</children>
+	
+	<columnConstraints>
+		<ColumnConstraints percentWidth="33"/>
+		<ColumnConstraints percentWidth="33"/>
+		<ColumnConstraints percentWidth="33"/>
+	</columnConstraints>
+	
+	<rowConstraints>
+		<RowConstraints percentHeight="100"/>
+	</rowConstraints>
+	
 </GridPane>
 
