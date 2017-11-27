@@ -23,7 +23,7 @@ public class Message implements Serializable
 	 * gets the string in the message
 	 * @returns the string in the message
 	 */
-	public String getStringLoc()
+	public String getStringMsg()
 	{
 		String copy = _stringMsg;
 		return copy;
@@ -33,9 +33,9 @@ public class Message implements Serializable
 	 * sets the data for a text message to the given string
 	 * @param stringLoc string that is being passed, non-null
 	 */
-	public void setStringLoc(String stringLoc)
+	public void setStringMsg(String stringMsg)
 	{
-		this._stringMsg = stringLoc;
+		this._stringMsg = stringMsg;
 	}
 
 	/**

@@ -19,7 +19,7 @@ public class User implements Serializable
 
 	/**
 	 * which returns the name of the user object
-	 * @return a name, a string, non-null unless object is null
+	 * @return a name, a string
 	 */
 	public String getName()
 	{
@@ -31,9 +31,12 @@ public class User implements Serializable
 	 * sets the name of the user object
 	 * @param _name, must be null, must have length > 0
 	 */
-	public void setName(String _name)
+	public void setName(String name)
 	{
-		this._name = _name;
+		if (name != null) 
+		{
+			this._name = name;
+		}
 	}
 
 	/**
@@ -50,9 +53,12 @@ public class User implements Serializable
 	 * sets an email for the user object
 	 * @param _email, non-null
 	 */
-	public void setEmail(String _email)
+	public void setEmail(String email)
 	{
-		this._email = _email;
+		if (email != null) 
+		{
+			this._email = email;
+		}	
 	}
 
 	/**
@@ -69,9 +75,12 @@ public class User implements Serializable
 	 * sets the id number for the user object
 	 * @param _IDno, must be int, must be >0
 	 */
-	public void setIDNo(int _IDno)
+	public void setIDNo(int iDno)
 	{
-		this._idNo = _IDno;
+		if (iDno > 0)
+		{
+			this._idNo = iDno;
+		}
 	}
 
 	/**

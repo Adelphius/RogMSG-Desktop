@@ -27,7 +27,10 @@ public class Poll
 	 */
 	public void setEndDate(Date endDate)
 	{
-		this._endDate = endDate;
+		if (endDate != null)
+		{
+			this._endDate = endDate;
+		}
 	}
 
 	/**
@@ -40,32 +43,35 @@ public class Poll
 		return copy;
 	}
 
-/**
- * sets options for the poll
- * @param options
- */
+	/**
+	 * sets options for the poll
+	 * @param options
+	 */
 	public void setOptions(Map<String, Integer> options)
 	{
-		this._options = options;
+		if (options != null)
+		{
+			this._options = options;
+		}
 	}
-
-/**
- * gets the name of the poll
- * @return a string of the name, length >= 1
- */
+	/**
+	 * gets the name of the poll
+	 * @return a string of the name, length >= 1
+	 */
 	public String getName()
 	{
 		String copy = _name;
 		return copy;
 	}
 
-/**
- * sets the name of the poll
- * @param name is the string you want the poll to be, length >= 1, non null, 
- */
+	/**
+	 * sets the name of the poll
+	 * @param name is the string you want the poll to be, length >= 1 (not inlcuding white space), non null, 
+	 */
 	public void setName(String name)
 	{
-		this._name = name;
+		if (name != null && name.trim().length() >= 1)
+			this._name = name;
 	}
 
 	/**
@@ -80,19 +86,26 @@ public class Poll
 
 	/**
 	 * sets a user to be the creator of the poll
-	 * @param creator is the creator of the poll
+	 * @param creator is the creator of the poll, non-null
 	 */
 	public void setCreator(User creator)
 	{
-		this._creator = creator;
+		if (creator != null)
+		{
+			this._creator = creator;
+		}
 	}
 
 	/**
 	 * add one vote to poll option that is passed in.
-	 * @param vote is the thing we want to add one vote to, length >= 1
+	 * @param vote is the thing we want to add one vote to, non-null, length >= 1
 	 */
 	public void addVote(String vote)
 	{
+		if (vote != null && vote.length()>=1)
+		{
+
+		}
 
 	}
 
