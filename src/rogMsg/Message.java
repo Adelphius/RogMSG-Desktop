@@ -75,12 +75,4 @@ public class Message implements Serializable
 	{
 		this._audioLoc = audioLoc;
 	}
-
-	/**
-	 * 
-	 */
-	public Message()
-	{
-		// TODO Auto-generated constructor stub
-	}
 }
