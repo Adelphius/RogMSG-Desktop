@@ -18,6 +18,22 @@ public class User implements Serializable
 	private int _idNo;
 
 	/**
+	 * Makes a basic user
+	 * @param name, name.Trim().length() > 0
+	 * @param email, email.Trim().length() > 0
+	 * @param idNo, > 0
+	 */
+	public User(String name, String email, int idNo)
+	{
+		if (name.trim().length() > 0 && email.trim().length() > 0 && idNo > 0)
+		{
+			_name = name;
+			_email = email;
+			_idNo = idNo;
+		}
+	}
+
+	/**
 	 * which returns the name of the user object
 	 * @return a name, a string
 	 */
