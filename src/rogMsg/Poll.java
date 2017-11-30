@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Poll 
 {
-
+ 
 	private Date _endDate;
 	private Map< String,Integer> _options;
 	private String _name;
