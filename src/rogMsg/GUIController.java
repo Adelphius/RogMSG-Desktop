@@ -56,15 +56,20 @@ public class GUIController
 		Label label = new Label("");
 		TextField field = new TextField();
 		
+		//Submit login info
 		if(e.getSource().equals(submitButton))
 		{
 //			actionTarget.setText("switch to main chat window now");
+			
+			
+			
 			p = FXMLLoader.load(getClass().getResource("ChatWindowFXML.fxml"));
 			s = new Scene(p, 800, 600);
 			ps = (Stage)submitButton.getScene().getWindow();
 			ps.setTitle("ROG-Msg - Group Name");
 			ps.setScene(s);
 		}
+		//Register
 		else if(e.getSource().equals(registerButton))
 		{
 //			actionTarget.setText("switch to register screen now");
@@ -74,6 +79,7 @@ public class GUIController
 			ps.setTitle("ROGMsg - Register");
 			ps.setScene(s);
 		}
+		//Add user to group
 		else if(e.getSource().equals(addUserButton))
 		{
 //			actionTarget.setText("open pop up now");
@@ -84,6 +90,7 @@ public class GUIController
 			ps.setScene(s);
 			ps.show();
 		}
+		//Submit new user to group
 		else if(e.getSource().equals(submitAddUserButton))
 		{
 			String usenm = userName.getText();
@@ -92,6 +99,7 @@ public class GUIController
 			addUserToGroup(newUser);
 			actionTarget.setText("Add user " + usenm + " to group now");
 		}
+		//new list button
 		else if(e.getSource().equals(newListButton))
 		{
 			p = FXMLLoader.load(getClass().getResource("NewListFormFXML.fxml"));
@@ -101,6 +109,7 @@ public class GUIController
 			ps.setScene(s);
 			ps.show();
 		}
+		//add new item to list
 		else if(e.getSource().equals(addNewListItemButton))
 		{
 			rowCount++;
