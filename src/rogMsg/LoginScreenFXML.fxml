@@ -15,10 +15,10 @@
 		GridPane.columnIndex="0" GridPane.rowIndex="0" textAlignment="CENTER"
 		GridPane.columnSpan="2"/>
 		
-	<Label text="Username:"
+	<Label text="Email:"
 	GridPane.columnIndex="0" GridPane.rowIndex="1"/>
 	
-	<TextField fx:id="userName"
+	<TextField fx:id="email"
 		GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 	
 	<Label text="Password:"

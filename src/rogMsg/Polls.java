@@ -13,9 +13,10 @@ public class Polls
 		return null;
 	}
 
-	public void createPoll(String name, Date expDate, Map<String,Integer> optionMap)
+	public static Poll createPoll(String name, Date expDate, Map<String,Integer> optionMap)
 	{
-
+		
+		return null;
 	}
 	// TODO in the UML it says, "PollList[i]" goes in the parathesis
 	// Returns Poll
@@ -29,7 +30,4 @@ public class Polls
 	{
 
 	}
-
-
-
 }
