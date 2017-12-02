@@ -5,11 +5,29 @@ import java.util.Map;
 
 public class Poll 
 {
-
+ 
 	private Date _endDate;
 	private Map< String,Integer> _options;
 	private String _name;
 	private User _creator;
+
+	/**
+	 * Constructor for a poll
+	 * @param endDate is the date the poll ends, non-null
+	 * @param options is a map of option to vote, non-null
+	 * @param name is the name of the poll, name.trim().length()>0
+	 * @param creator is the creator of the poll, non-null
+	 */
+	public Poll(Date endDate, Map<String,Integer> options, String name, User creator)
+	{
+		if (creator != null && endDate != null && options != null && name.trim().length()>0)
+		{ 
+			_endDate = endDate;
+			_options = options;
+			_name = name.trim();
+			_creator = creator;
+		}
+	}
 
 	/**
 	 * gets the expiration date of the poll
@@ -104,9 +122,10 @@ public class Poll
 	 */
 	public void addVote(String vote)
 	{
-		if (vote != null && vote.length()>=1)
+		if (vote != null && vote.trim().length()>=1)
 		{
-
+			int currentTotal = _options.get(vote);
+			_options.replace(vote, currentTotal);
 		}
 	}
 }

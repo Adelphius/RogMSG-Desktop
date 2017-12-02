@@ -16,6 +16,8 @@
 		<children>
 			<Label text="List title:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
 			<TextField fx:id="field0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+			<Label text="Expiration date:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+			<DatePicker fx:id="expDate" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 		</children>
 	</GridPane>
 	<HBox GridPane.columnIndex="1" GridPane.rowIndex="3">

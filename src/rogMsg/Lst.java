@@ -9,6 +9,25 @@ public class Lst
 	private List<User> _audience;
 	private List<String> _items;
 
+	
+	
+	/**
+	 * Simple constructor for the object Lst
+	 * @param name is the desired name, length > 0 (after removing white space from beginning and end)
+	 * @param audience is the audience that can see it/
+	 * @param items is the list of items in the list
+	 */
+	public Lst(String name, List<User> audience, List<String> items)
+	{
+		if (name.trim().length() <= 0)
+			return;
+		_name = name;
+		_audience = audience;
+		_items = items;
+	}
+	
+	
+	
 	/**
 	 * gets the Lst object's name
 	 * @return a string copy of the name, non null length >= 1

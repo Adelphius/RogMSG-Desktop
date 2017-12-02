@@ -17,7 +17,7 @@ public class ClientApp
 
 	private User _currentUser;
 	private ArrayList<User> _userList;
-
+	private static ArrayList<User> _userListCpy;
 	/**
 	 * Returns a copy of the user.
 	 * @return a user object. A copy so it does not give away the location it's stored in memory.
@@ -61,14 +61,24 @@ public class ClientApp
 			_userList = user;
 		}
 	}
+	
+	public static ArrayList<User> get_userListCpy()
+	{
+		return _userListCpy;
+	}
 
+	public static void set_userListCpy(ArrayList<User> _userListCpy)
+	{
+		ClientApp._userListCpy = _userListCpy;
+	}
+  
 	/**
 	 * Takes the login details and attempts to authenticate it with the server
 	 * @param pass, the password that you are using for the login,  non null
 	 * @param email, the email that you are using for the login
 	 * @return boolean, tru if success, false if failed
 	 */
-	public boolean loginAttempt(String pass, String email)
+	public static boolean loginAttempt(String pass, String email)
 	{
 		if (pass != null && email != null)
 		{
@@ -97,6 +107,33 @@ public class ClientApp
 		}
 		return false;
 	}
+	
+	public static boolean registerAttempt(String username, String email, String pass, String conPass)
+	{
+		/*
+		 * some server interaction probably goes here too
+		 */
+		return false;
+	}
+	
+	/**
+	 * adds a user to the group and tells UI to update itself.
+	 * @param user the user to be added.
+	 */
+	public static void addUserToGroup(User user)
+	{
+		
+	}
+	
+	public static void addLsttoLists(Lst list)
+	{
+
+	}
+
+	public ClientApp()
+	{
+		set_userListCpy(getUsrList());
+	}
 
 	
 	public static void main (String args[]) throws IOException
@@ -104,5 +141,5 @@ public class ClientApp
 		ROGMsgGui.launch(ROGMsgGui.class);
 		
 	}
-	
+
 }
