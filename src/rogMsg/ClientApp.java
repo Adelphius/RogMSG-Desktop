@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class ClientApp
 {
 
-	private User _currentUser;
+	private static User _currentUser;
 	private ArrayList<User> _userList;
 	private static ArrayList<User> _userListCpy;
 	/**
