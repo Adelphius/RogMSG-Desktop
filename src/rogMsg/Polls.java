@@ -16,18 +16,21 @@ public class Polls
 
 	}
 
-	/**
+  /**
 	 * creates a new Poll object
 	 * @param name the desired name of the object, non-null, length >= 1
 	 * @param expDate the expiration date of the object, non-null
 	 * @param optionMap the options maped with votes, non-null
 	 */
-	public void createPoll(String name, Date expDate, Map<String,Integer> optionMap)
+	public static Poll createPoll(String name, Date expDate, Map<String,Integer> optionMap)
 	{
-		if (name != null && name.trim().length() >= 1  && expDate != null && optionMap != null)
-		{
+  
+    if (name != null && name.trim().length() >= 1  && expDate != null && optionMap != null)
+		  {
 
-		}
+		  }
+		
+		return null;
 	}
 
 	/**

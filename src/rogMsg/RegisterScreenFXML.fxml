@@ -42,7 +42,7 @@
 		
 	<HBox spacing="10" alignment="bottom_right"
 		GridPane.columnIndex="1" GridPane.rowIndex="5">
-		<Button text="Submit" fx:id="submitButton"
+		<Button text="Submit" fx:id="submitRegisterButton"
 		onAction="#handleButton"/>
 		<Button text="Cancel" fx:id="cancelButton"
 		onAction="#handleButton"/>
