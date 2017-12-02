@@ -6,11 +6,12 @@
 
 package rogMsg;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ClientApp
 {
-  
+
 	private User _currentUser;
 	private ArrayList<User> _userList;
 	private static ArrayList<User> _userListCpy;
@@ -25,17 +26,20 @@ public class ClientApp
 	}
 
 	/**
-	 * Returns a 
-	 * @param user 
+	 * Sets the current user
+	 * @param user is the desired new current user
 	 */
 	public void setCurrentUsr(User user)
 	{
-		_currentUser = user;
+		if (user != null)
+		{
+			_currentUser = user;
+		}
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Gets the list of users that are logged in the user's group
+	 * @return a list of users, non null, can be empty
 	 */
 	public ArrayList<User> getUsrList()
 	{
@@ -44,12 +48,15 @@ public class ClientApp
 	}
 
 	/**
-	 * 
-	 * @param user
+	 * sets the list of users in the group that are logged in
+	 * @param user is the list that is going to be saved, cannot be null
 	 */
 	public void setUsrList(ArrayList<User> user)
 	{
-		_userList = user;
+		if (user != null)
+		{
+			_userList = user;
+		}
 	}
 	
 	public static ArrayList<User> get_userListCpy()
@@ -63,15 +70,16 @@ public class ClientApp
 	}
   
 	/**
-	 * 
-	 * @param pass
-	 * @param email
+	 * Takes the login details and attempts to authenticate it with the server
+	 * @param pass, the password that you are using for the login,  non null
+	 * @param email, the email that you are using for the login
 	 */
 	public static boolean loginAttempt(String pass, String email)
 	{
-		/**
-		 * some interaction with the server has to go here?
-		 */
+		if (pass != null && email != null)
+		{
+
+		}
 		return true;
 	}
 	
@@ -94,16 +102,21 @@ public class ClientApp
 	
 	public static void addLsttoLists(Lst list)
 	{
-		
+
 	}
 
 	public ClientApp()
 	{
 		set_userListCpy(getUsrList());
 	}
+
 	
-	public static void main(String[] args)
-	{
+	public static void main (String args[]) throws IOException
+  {
 		ROGMsgGui.launch(ROGMsgGui.class);
+		
+		SocketClient sc = new SocketClient();
+		sc.requestConnection();
 	}
+
 }
