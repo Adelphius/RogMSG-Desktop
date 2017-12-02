@@ -7,6 +7,9 @@
 package rogMsg;
 
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 public class ClientApp
@@ -73,19 +76,41 @@ public class ClientApp
 	 * Takes the login details and attempts to authenticate it with the server
 	 * @param pass, the password that you are using for the login,  non null
 	 * @param email, the email that you are using for the login
+	 * @return boolean, tru if success, false if failed
 	 */
 	public static boolean loginAttempt(String pass, String email)
 	{
 		if (pass != null && email != null)
 		{
-
+				
+			SocketClient authConnetion = new SocketClient("localhost", 1023);
+			
+			try {
+				User attempt = authConnetion.auth(email, pass);
+				
+				if(attempt!=null)
+				{
+					_currentUser = attempt;
+					return true;
+				}
+				
+			} catch (UnknownHostException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			return false;
 		}
-		return true;
+		return false;
 	}
 	
 	public static boolean registerAttempt(String username, String email, String pass, String conPass)
 	{
-		/**
+		/*
 		 * some server interaction probably goes here too
 		 */
 		return false;
@@ -112,11 +137,9 @@ public class ClientApp
 
 	
 	public static void main (String args[]) throws IOException
-  {
+	{
 		ROGMsgGui.launch(ROGMsgGui.class);
 		
-		SocketClient sc = new SocketClient();
-		sc.requestConnection();
 	}
 
 }
