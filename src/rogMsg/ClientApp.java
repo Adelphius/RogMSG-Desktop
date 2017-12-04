@@ -18,10 +18,6 @@ import javafx.stage.Stage;
 
 public class ClientApp extends Application
 {
-<<<<<<< HEAD
-=======
-
->>>>>>> 2952692cb3b1ff1e27121c45d387e7fac2986cc7
 	private User _currentUser;
 	private static ArrayList<User> _userList;
 	
@@ -146,18 +142,14 @@ public class ClientApp extends Application
 	}
 
 	
-<<<<<<< HEAD
-	public static void main(String[] args)
+	public static void main(String[] args) throws IOException
 	{
 		launch();
-=======
-	public static void main (String args[]) throws IOException
-  {
-		ROGMsgGui.launch(ROGMsgGui.class);
+
+		//ROGMsgGui.launch(ROGMsgGui.class); //dont believe this is needed anymore?
 		
 		SocketClient sc = new SocketClient();
 		sc.requestConnection();
->>>>>>> 2952692cb3b1ff1e27121c45d387e7fac2986cc7
 	}
 
 }

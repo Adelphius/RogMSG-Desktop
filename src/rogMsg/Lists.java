@@ -41,7 +41,7 @@ public class Lists {
 	{
     if (name != null && listItems != null)
 		{
-		  Lst list = new Lst();
+		  Lst list = new Lst(name, null, listItems);
 		  list.setName(name);
 		  for(String s : listItems)
 		  {
@@ -49,6 +49,7 @@ public class Lists {
 		  }
 		  return list;
     }
+    return null;
 
 	}
 
