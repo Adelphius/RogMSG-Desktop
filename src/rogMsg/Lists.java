@@ -4,9 +4,14 @@ import java.util.ArrayList;
 
 
 public class Lists {
-	
+
 	private ArrayList<Lst> _listSquared;
 
+
+  /**
+	 * gets a List of Lst objects from the server and saves them to _listSquared
+	 * @return a list.
+	 */
 	public Lst getList(String name)
 	{
 		for(Lst l : _listSquared)
@@ -18,26 +23,33 @@ public class Lists {
 		}
 		return null;
 	}
-	
+
 	/**
-	 * TODO redefine this so its more proper.
-	 * What does it return? On the UML it says it returns a poll?
-	 * Also it says the method takes an array?
+	 * chooses a list to be modified or edited
 	 */
 	public void selectLst()
 	{
-		
+
 	}
 	
+  /**
+	 * creates a new Lst object and adds it to the listItems
+	 * @param name is the name of the object
+	 * @param listItems is an arraylist of the objects
+	 */
 	public static Lst createLst(String name, ArrayList<String> listItems)
 	{
-		Lst list = new Lst();
-		list.setName(name);
-		for(String s : listItems)
+    if (name != null && listItems != null)
 		{
-			list.addItem(s);
-		}
-		return list;
+		  Lst list = new Lst();
+		  list.setName(name);
+		  for(String s : listItems)
+		  {
+		  	list.addItem(s);
+		  }
+		  return list;
+    }
+
 	}
-	
+
 }

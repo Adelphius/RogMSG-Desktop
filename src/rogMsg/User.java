@@ -17,10 +17,25 @@ public class User implements Serializable
 	private String _email;
 	private int _idNo;
 
-	//the following are getters/setter for the variables above
 	/**
-	 * 
-	 * @return
+	 * Makes a basic user
+	 * @param name, name.Trim().length() > 0
+	 * @param email, email.Trim().length() > 0
+	 * @param idNo, > 0
+	 */
+	public User(String name, String email, int idNo)
+	{
+		if (name.trim().length() > 0 && email.trim().length() > 0 && idNo > 0)
+		{
+			_name = name;
+			_email = email;
+			_idNo = idNo;
+		}
+	}
+
+	/**
+	 * which returns the name of the user object
+	 * @return a name, a string
 	 */
 	public String getName()
 	{
@@ -29,17 +44,20 @@ public class User implements Serializable
 	}
 
 	/**
-	 * 
-	 * @param _name
+	 * sets the name of the user object
+	 * @param _name, must be null, must have length > 0
 	 */
-	public void setName(String _name)
+	public void setName(String name)
 	{
-		this._name = _name;
+		if (name != null) 
+		{
+			this._name = name;
+		}
 	}
 
 	/**
-	 * 
-	 * @return
+	 * gets a string of the email
+	 * @return the email for the user object, can be null
 	 */
 	public String getEmail()
 	{
@@ -48,17 +66,20 @@ public class User implements Serializable
 	}
 
 	/**
-	 * 
-	 * @param _email
+	 * sets an email for the user object
+	 * @param _email, non-null
 	 */
-	public void setEmail(String _email)
+	public void setEmail(String email)
 	{
-		this._email = _email;
+		if (email != null) 
+		{
+			this._email = email;
+		}	
 	}
 
 	/**
-	 * 
-	 * @return
+	 * gets the id number in the form of an int
+	 * @return the id number, must be int, must be > 0
 	 */
 	public int getIDNo()
 	{
@@ -67,12 +88,15 @@ public class User implements Serializable
 	}
 
 	/**
-	 * 
-	 * @param _IDno
+	 * sets the id number for the user object
+	 * @param _IDno, must be int, must be >0
 	 */
-	public void setIDNo(int _IDno)
+	public void setIDNo(int iDno)
 	{
-		this._idNo = _IDno;
+		if (iDno > 0)
+		{
+			this._idNo = iDno;
+		}
 	}
 
 	/**
