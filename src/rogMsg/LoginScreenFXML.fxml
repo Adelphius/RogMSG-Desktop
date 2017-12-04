@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane fx:controller="rogMsg.GUIController"
+<GridPane fx:id="root" fx:controller="rogMsg.LoginController"
 	xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" vgap="10">
 	<padding><Insets top="25" bottom="10" left="25"/></padding>
 	

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane fx:controller="rogMsg.GUIController"
+<GridPane fx:controller="rogMsg.NewPollFormController"
 	xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" vgap="10">
 	<padding><Insets top="25" bottom="10" left="25"/></padding>
 <children>
@@ -15,14 +15,14 @@
 	<GridPane fx:id="innerGrid" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.ColumnSpan="2" hgap="10">
 		<children>
 			<Label text="List title:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-			<TextField fx:id="field0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+			<TextField fx:id="pollQuestion" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 			<Label text="Expiration date:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
 			<DatePicker fx:id="expDate" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 		</children>
 	</GridPane>
-	<HBox GridPane.columnIndex="1" GridPane.rowIndex="3">
-		<Button text="Create" fx:id="createNewPollButton" onAction="#handleButton"/>
-		<Button text="Add option" fx:id="addNewPollOptionButton" onAction="#handleButton"/>
+	<HBox GridPane.columnIndex="1" GridPane.rowIndex="2">
+		<Button text="Create" fx:id="createButton" onAction="#handleButton"/>
+		<Button text="Add option" fx:id="addOptionButton" onAction="#handleButton"/>
 	</HBox>
 	<Text fx:id="actionTarget" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 </children>

@@ -8,7 +8,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.PasswordField?>
 
-<GridPane fx:controller="rogMsg.GUIController"
+<GridPane fx:id="root" fx:controller="rogMsg.RegisterScreenController"
 	xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" vgap="10">
 	<padding><Insets top="25" bottom="10" left="25"/></padding>
 	
@@ -37,12 +37,12 @@
 	<Label text="Password:"
 		GridPane.columnIndex="0" GridPane.rowIndex="3"/>
 		
-	<PasswordField fx:id="passwordField"
+	<PasswordField fx:id="password"
 		GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 		
 	<HBox spacing="10" alignment="bottom_right"
 		GridPane.columnIndex="1" GridPane.rowIndex="5">
-		<Button text="Submit" fx:id="submitRegisterButton"
+		<Button text="Submit" fx:id="submitButton"
 		onAction="#handleButton"/>
 		<Button text="Cancel" fx:id="cancelButton"
 		onAction="#handleButton"/>
