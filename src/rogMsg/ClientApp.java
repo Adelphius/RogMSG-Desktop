@@ -7,13 +7,19 @@
 package rogMsg;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class ClientApp
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+
+public class ClientApp extends Application
 {
-  
 	private User _currentUser;
-	private ArrayList<User> _userList;
-	private static ArrayList<User> _userListCpy;
+	private static ArrayList<User> _userList;
+	
 	/**
 	 * Returns a copy of the user.
 	 * @return a user object. A copy so it does not give away the location it's stored in memory.
@@ -42,6 +48,16 @@ public class ClientApp
 		ArrayList<User> copy = _userList;
 		return copy;
 	}
+	
+	public static List<String> getUserNames()
+	{
+		List<String> names = new ArrayList<>();
+		for(User u : _userList)
+		{
+			names.add(u.getName());
+		}
+		return names;
+	}
 
 	/**
 	 * 
@@ -50,16 +66,6 @@ public class ClientApp
 	public void setUsrList(ArrayList<User> user)
 	{
 		_userList = user;
-	}
-	
-	public static ArrayList<User> get_userListCpy()
-	{
-		return _userListCpy;
-	}
-
-	public static void set_userListCpy(ArrayList<User> _userListCpy)
-	{
-		ClientApp._userListCpy = _userListCpy;
 	}
   
 	/**
@@ -85,25 +91,50 @@ public class ClientApp
 	
 	/**
 	 * adds a user to the group and tells UI to update itself.
-	 * @param user the user to be added.
+	 * 		-> should pass a string back to the addUser controller to let user know if it passed or failed <-
+	 * @param user - the user to be added.
 	 */
 	public static void addUserToGroup(User user)
 	{
 		
 	}
 	
+	/**
+	 * adds a Lst to the Lists and tells the UI to update itself.
+	 * 		-> should pass a string back to the addList controller to let user know if it passed or failed <-
+	 * @param list - the list to be added.
+	 */
 	public static void addLsttoLists(Lst list)
 	{
 		
 	}
-
-	public ClientApp()
+	
+	/**
+	 * adds a Poll to the Polls and tells the UI to update itself.
+	 * 		-> should pass a string back to the addPoll controller to let user know if it passed or failed <-
+	 * @param poll - the poll to be added
+	 */
+	public static void addPollstoPolls(Poll poll)
 	{
-		set_userListCpy(getUsrList());
+		
+	}
+	
+	@Override
+	public void start(Stage primaryStage) throws Exception
+	{
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginScreenFXML.fxml"));
+		GridPane page = (GridPane) loader.load();
+		Stage dialogStage = new Stage();
+		dialogStage.setTitle("ROGMsg - Login");
+		Scene scene = new Scene(page, 400, 375);
+		dialogStage.setScene(scene);
+		LoginController login = loader.getController();
+		login.setStage(dialogStage);
+		dialogStage.show();
 	}
 	
 	public static void main(String[] args)
 	{
-		ROGMsgGui.launch(ROGMsgGui.class);
+		launch();
 	}
 }
