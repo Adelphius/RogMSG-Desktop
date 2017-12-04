@@ -39,18 +39,18 @@ public class Lists {
 	 */
 	public static Lst createLst(String name, ArrayList<String> listItems)
 	{
-    if (name != null && listItems != null)
-		{
-		  Lst list = new Lst(name, null, listItems);
-		  list.setName(name);
-		  for(String s : listItems)
-		  {
-		  	list.addItem(s);
-		  }
-		  return list;
-    }
-    return null;
 
+	    if (name != null && listItems != null)
+			{
+			  Lst list = new Lst(name, null, listItems);// null because we are not passing the list of users for the audience.
+			  list.setName(name);
+			  for(String s : listItems)
+			  {
+			  	list.addItem(s);
+			  }
+			  return list;
+	    }
+	    return null;
 	}
 
 }
