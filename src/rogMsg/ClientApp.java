@@ -21,7 +21,6 @@ import rogShared.User;
 
 public class ClientApp extends Application
 {
-
 	private static User _currentUser;
 	private static ArrayList<User> _userList;
 	private static ArrayList<User> _userListCpy;
@@ -60,13 +59,25 @@ public class ClientApp extends Application
 	 * Gets the list of users that are logged in the user's group
 	 * @return a list of users, non null, can be empty
 	 */
-	public ArrayList<User> getUsrList()
+	public static ArrayList<User> getUsrList()
 	{
 		ArrayList<User> copy = _userList;
 		return copy;
 	}
+
+	/**
+	 * sets the list of users in the group that are logged in
+	 * @param user is the list that is going to be saved, cannot be null
+	 */
+	public void setUsrList(ArrayList<User> users)
+	{
+		if (users != null)
+		{
+			_userList = users;
+		}
+	}
 	
-	public static List<String> getUserNames()
+	public List<String> getUserNames()
 	{
 		List<String> names = new ArrayList<>();
 		for(User u : _userList)
@@ -74,18 +85,6 @@ public class ClientApp extends Application
 			names.add(u.getName());
 		}
 		return names;
-	}
-
-	/**
-	 * sets the list of users in the group that are logged in
-	 * @param user is the list that is going to be saved, cannot be null
-	 */
-	public void setUsrList(ArrayList<User> user)
-	{
-		if (user != null)
-		{
-			_userList = user;
-		}
 	}
   
 	/**
@@ -149,32 +148,12 @@ public class ClientApp extends Application
 		return false;
 	}
 	
-	/**
-	 * adds a user to the group and tells UI to update itself.
-	 * 		-> should pass a string back to the addUser controller to let user know if it passed or failed <-
-	 * @param user - the user to be added.
-	 */
-	public static void addUserToGroup(User user)
+	public static void addUserToGroup(User usr)
 	{
 		
 	}
 	
-	/**
-	 * adds a Lst to the Lists and tells the UI to update itself.
-	 * 		-> should pass a string back to the addList controller to let user know if it passed or failed <-
-	 * @param list - the list to be added.
-	 */
-	public static void addLsttoLists(Lst list)
-	{
-
-	}
-	
-	/**
-	 * adds a Poll to the Polls and tells the UI to update itself.
-	 * 		-> should pass a string back to the addPoll controller to let user know if it passed or failed <-
-	 * @param poll - the poll to be added
-	 */
-	public static void addPollstoPolls(Poll poll)
+	public static void removeUserFromGroup(User usr)
 	{
 		
 	}
@@ -192,8 +171,8 @@ public class ClientApp extends Application
 		login.setStage(dialogStage);
 		dialogStage.show();
 	}
-
 	
+
 
 	public static ObservableList<User> get_userListCpy() {
 		// TODO Auto-generated method stub

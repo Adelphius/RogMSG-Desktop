@@ -6,14 +6,14 @@ import rogShared.Message;
 
 public class Messaging
 {
-	private List<Message> _msgHistory;
+	private static List<Message> _msgHistory;
 	private boolean _isGroup;
 
 	/**
 	 * returns a copy of the message history
 	 * @return a list of messages
 	 */
-	public List<Message> getMsgHistory() {
+	public static List<Message> getMsgHistory() {
 		List<Message> copy = _msgHistory; 
 		return copy;
 	}
@@ -22,10 +22,10 @@ public class Messaging
 	 * Sets the msg history 
 	 * @param _msgHistory a list of messages, non-null
 	 */
-	public void setMsgHistory(List<Message> _msgHistory) {
+	public void setMsgHistory(List<Message> msgHistory) {
 		if (_msgHistory != null)
 		{	
-			this._msgHistory = _msgHistory;
+			_msgHistory = msgHistory;
 		}
 	}
 
@@ -43,7 +43,7 @@ public class Messaging
 	 * @param isGroup true if the chat is a groupchat, false if the chat is a single class
 	 */
 	public void setIsGroup(boolean isGroup) {
-		this._isGroup = isGroup;
+		_isGroup = isGroup;
 	}
 
 	/**

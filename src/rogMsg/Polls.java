@@ -1,12 +1,13 @@
 package rogMsg;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 public class Polls
 {
-	private List<Poll> _pollList;
+	private static List<Poll> _pollList;
 
 	/**
 	 * gets a list of polls from the server and saves them to your device.
@@ -15,12 +16,19 @@ public class Polls
 	{
 
 	}
+	
+	public static List<Poll> getPollList()
+	{
+		List<Poll> list = new ArrayList<Poll>();
+		list = _pollList;
+		return list;
+	}
 
   /**
 	 * creates a new Poll object
 	 * @param name the desired name of the object, non-null, length >= 1
 	 * @param expDate the expiration date of the object, non-null
-	 * @param optionMap the options maped with votes, non-null
+	 * @param optionMap the options mapped with votes, non-null
 	 */
 	public static Poll createPoll(String name, Date expDate, Map<String,Integer> optionMap)
 	{
@@ -58,5 +66,10 @@ public class Polls
 		{
 			_pollList.remove(pWAS);
 		}
+	}
+	
+	public static void addPolltoPollList(Poll poll)
+	{
+		_pollList.add(poll);
 	}
 }

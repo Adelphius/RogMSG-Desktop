@@ -71,7 +71,7 @@ public class Poll
 	{
 		if (options != null)
 		{
-			this._options = options;
+			_options = options;
 		}
 	}
 	/**
@@ -92,7 +92,7 @@ public class Poll
 	{
 		if (name != null && name.trim().length() >= 1)
 		{
-			this._name = name;
+			_name = name;
 		}
 	}
 
@@ -114,7 +114,7 @@ public class Poll
 	{
 		if (creator != null)
 		{
-			this._creator = creator;
+			_creator = creator;
 		}
 	}
 
