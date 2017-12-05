@@ -3,8 +3,12 @@ package rogMsg;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
+
+import rogShared.User;
+
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 
@@ -27,18 +31,6 @@ public class SocketClient {
 	 * in the future we will want to make it receive a new port in order...
 	 *  to set up a dedicated socket connection with the server.
 	 */
-	public void requestConnection() throws UnknownHostException, IOException
-	{
-		
-		
-		Socket s = new Socket(serverAddress, serverPort);
-		
-		BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
-		
-		String severResponce = br.readLine();
-		
-		System.out.println(severResponce);
-	}
 
 	/**
 	 * Attempts to authenticate the user with the server. 
@@ -49,17 +41,78 @@ public class SocketClient {
 	 * @throws UnknownHostException
 	 * @throws IOException
 	 */
-	public User auth(String email, String pass) throws UnknownHostException, IOException {
+	public User auth(String email, String pass) throws UnknownHostException, IOException 
+	{
 		Socket s = new Socket (serverAddress, serverPort);
 		PrintWriter dataOut = new PrintWriter(new OutputStreamWriter(s.getOutputStream()));
+		
+		dataOut.println("login");
 		
 		dataOut.println(email);
 		dataOut.println(pass);
 		dataOut.flush();
 		
+		BufferedReader input =
+	            new BufferedReader(new InputStreamReader(s.getInputStream()));
+		String isAuth = input.readLine();
+		if(isAuth.equals("authenticated"))
+		{
+			System.out.println("waiting for port");
+			int port = input.read(); //read port int
+			System.out.println("setting up object reader");
+			ObjectInputStream inFromServer = new ObjectInputStream(s.getInputStream());
+			User userFromServer;
+			try {
+				System.out.println("waiting for user object");
+				userFromServer = (rogShared.User)inFromServer.readObject();
+				System.out.println("got user object. returning");
+				return userFromServer;
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else if(isAuth.equals("invalid")){
+			System.out.println("invalid");
+		}else {
+			System.out.println("bad, but not invalid");
+		}
 		
 		return null;
 		
 	}
+	
+	public User reg(String email, String name, String pass) throws UnknownHostException, IOException
+    {
+		Socket s = new Socket (serverAddress, serverPort);
+		PrintWriter dataOut = new PrintWriter(new OutputStreamWriter(s.getOutputStream()));
+		
+		dataOut.println("register");
+		
+		dataOut.println(email);
+		dataOut.println(name);
+		dataOut.println(pass);
+		dataOut.flush();
+		
+		BufferedReader input =
+	            new BufferedReader(new InputStreamReader(s.getInputStream()));
+		
+		if(input.readLine().equals("authenticated"))
+		{
+			int port = input.read(); //read port int
+			ObjectInputStream inFromServer = new ObjectInputStream(s.getInputStream());
+			User userFromServer = new User();
+			
+			try {
+				userFromServer = (User) inFromServer.readObject();
+				return userFromServer;
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+			
+    	return null;
+    }
 
 }

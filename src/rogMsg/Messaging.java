@@ -2,6 +2,8 @@ package rogMsg;
 
 import java.util.List;
 
+import rogShared.Message;
+
 public class Messaging
 {
 	private static List<Message> _msgHistory;

@@ -28,6 +28,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import rogShared.Message;
+import rogShared.User;
 
 public class ChatWindowController implements Initializable
 {

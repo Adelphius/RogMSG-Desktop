@@ -1,5 +1,7 @@
 package rogMsg;
 
+import rogShared.Message;
+
 public class Announcements extends Messaging
 {
 	/**

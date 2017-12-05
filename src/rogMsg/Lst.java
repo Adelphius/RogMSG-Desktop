@@ -3,6 +3,8 @@ package rogMsg;
 import java.util.ArrayList;
 import java.util.List;
 
+import rogShared.User;
+
 public class Lst
 {
 	private String _name;
