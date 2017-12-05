@@ -3,6 +3,7 @@ package rogMsg;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.io.OutputStreamWriter;
@@ -57,6 +58,21 @@ public class SocketClient {
 		dataOut.println(pass);
 		dataOut.flush();
 		
+		BufferedReader input =
+	            new BufferedReader(new InputStreamReader(s.getInputStream()));
+		
+		if(input.readLine().equals("authenticated"))
+		{
+			ObjectInputStream inFromServer = new ObjectInputStream(s.getInputStream());
+			User userFromServer = new User();
+			try {
+				userFromServer = (User) inFromServer.readObject();
+				return userFromServer;
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
 		return null;
 		
