@@ -92,7 +92,7 @@ public class ClientApp extends Application
 		if (pass != null && email != null)
 		{
 				
-			SocketClient authConnetion = new SocketClient("localhost", 1023);
+			SocketClient authConnetion = new SocketClient("192.168.0.73", 1023);
 			
 			try {
 				User attempt = authConnetion.auth(email, pass);
