@@ -37,6 +37,14 @@ public class ClientApp extends Application
 		return copy;
 	}
 
+	
+	public static void main(String[] args)
+	{
+		launch();
+
+		//ROGMsgGui.launch(ROGMsgGui.class); //dont believe this is needed anymore?	
+	}
+	
 	/**
 	 * Sets the current user
 	 * @param user is the desired new current user
@@ -170,15 +178,6 @@ public class ClientApp extends Application
 	}
 
 	
-
-	public static void main(String[] args) throws IOException
-	{
-		launch();
-
-		//ROGMsgGui.launch(ROGMsgGui.class); //dont believe this is needed anymore?
-
-		
-	}
 
 	public static ObservableList<User> get_userListCpy() {
 		// TODO Auto-generated method stub
