@@ -3,6 +3,8 @@ package rogMsg;
 import java.util.Date;
 import java.util.Map;
 
+import rogShared.User;
+
 public class Poll 
 {
  

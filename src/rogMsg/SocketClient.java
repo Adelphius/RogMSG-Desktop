@@ -6,6 +6,9 @@ import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
+
+import rogShared.User;
+
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 
@@ -51,19 +54,27 @@ public class SocketClient {
 		
 		BufferedReader input =
 	            new BufferedReader(new InputStreamReader(s.getInputStream()));
-		
-		if(input.readLine().equals("authenticated"))
+		String isAuth = input.readLine();
+		if(isAuth.equals("authenticated"))
 		{
+			System.out.println("waiting for port");
 			int port = input.read(); //read port int
+			System.out.println("setting up object reader");
 			ObjectInputStream inFromServer = new ObjectInputStream(s.getInputStream());
-			User userFromServer = new User();
+			User userFromServer;
 			try {
-				userFromServer = (User) inFromServer.readObject();
+				System.out.println("waiting for user object");
+				userFromServer = (rogShared.User)inFromServer.readObject();
+				System.out.println("got user object. returning");
 				return userFromServer;
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}else if(isAuth.equals("invalid")){
+			System.out.println("invalid");
+		}else {
+			System.out.println("bad, but not invalid");
 		}
 		
 		return null;

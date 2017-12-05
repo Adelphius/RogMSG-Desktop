@@ -1,4 +1,4 @@
-package rogMsg;
+package rogShared;
 
 import java.io.Serializable;
 
