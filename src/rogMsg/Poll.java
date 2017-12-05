@@ -7,7 +7,7 @@ public class Poll
 {
  
 	private Date _endDate;
-	private Map< String,Integer> _options;
+	private Map<String,Integer> _options;
 	private String _name;
 	private User _creator;
 

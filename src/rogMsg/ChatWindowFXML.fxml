@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane fx:controller="rogMsg.GUIController"
+<GridPane fx:id="root" fx:controller="rogMsg.ChatWindowController"
 	xmlns:fx="http://javafx.com/fxml/1" alignment="top_left" hgap="10" vgap="10">
 	<padding><Insets top="25" bottom="10" left="25"/></padding>
 	<children>
