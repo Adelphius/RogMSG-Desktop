@@ -7,8 +7,6 @@
 package rogMsg;
 
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
@@ -130,6 +128,23 @@ public class ClientApp extends Application
 		/*
 		 * some server interaction probably goes here too
 		 */
+		if(pass.equals(conPass))
+		{
+			SocketClient regConnection = new SocketClient("192.168.0.73", 1023);
+			
+			try {
+				User newUser = regConnection.reg(email, username, pass);
+			} catch (UnknownHostException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		}
+		
 		return false;
 	}
 	
