@@ -28,18 +28,6 @@ public class SocketClient {
 	 * in the future we will want to make it receive a new port in order...
 	 *  to set up a dedicated socket connection with the server.
 	 */
-	public void requestConnection() throws UnknownHostException, IOException
-	{
-		
-		
-		Socket s = new Socket(serverAddress, serverPort);
-		
-		BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
-		
-		String severResponce = br.readLine();
-		
-		System.out.println(severResponce);
-	}
 
 	/**
 	 * Attempts to authenticate the user with the server. 
