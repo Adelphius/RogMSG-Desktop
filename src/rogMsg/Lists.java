@@ -47,6 +47,7 @@ public class Lists {
 	 */
 	public static Lst createLst(String name, List<User> audience, List<String> listItems)
 	{
+<<<<<<< HEAD
 		if (name != null && listItems != null)
 		{
 			Lst list = new Lst(name, audience, listItems);
@@ -63,5 +64,19 @@ public class Lists {
 	public static void addLstToLists(Lst list)
 	{
 		_listSquared.add(list);
+=======
+
+	    if (name != null && listItems != null)
+			{
+			  Lst list = new Lst(name, null, listItems);// null because we are not passing the list of users for the audience.
+			  list.setName(name);
+			  for(String s : listItems)
+			  {
+			  	list.addItem(s);
+			  }
+			  return list;
+	    }
+	    return null;
+>>>>>>> c80a37a6b7aab3569f3702983cdb32c0a50352b4
 	}
 }

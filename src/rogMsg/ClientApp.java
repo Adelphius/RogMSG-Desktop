@@ -7,10 +7,14 @@
 package rogMsg;
 
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
@@ -18,9 +22,15 @@ import javafx.stage.Stage;
 
 public class ClientApp extends Application
 {
+<<<<<<< HEAD
 	private User _currentUser;
+=======
+
+	private static User _currentUser;
+>>>>>>> c80a37a6b7aab3569f3702983cdb32c0a50352b4
 	private static ArrayList<User> _userList;
-	
+	private static ArrayList<User> _userListCpy;
+
 	/**
 	 * Returns a copy of the user.
 	 * @return a user object. A copy so it does not give away the location it's stored in memory.
@@ -79,19 +89,41 @@ public class ClientApp extends Application
 	 * Takes the login details and attempts to authenticate it with the server
 	 * @param pass, the password that you are using for the login,  non null
 	 * @param email, the email that you are using for the login
+	 * @return boolean, tru if success, false if failed
 	 */
 	public static boolean loginAttempt(String pass, String email)
 	{
 		if (pass != null && email != null)
 		{
-
+				
+			SocketClient authConnetion = new SocketClient("localhost", 1023);
+			
+			try {
+				User attempt = authConnetion.auth(email, pass);
+				
+				if(attempt!=null)
+				{
+					_currentUser = attempt;
+					return true;
+				}
+				
+			} catch (UnknownHostException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			return false;
 		}
-		return true;
+		return false;
 	}
 	
 	public static boolean registerAttempt(String username, String email, String pass, String conPass)
 	{
-		/**
+		/*
 		 * some server interaction probably goes here too
 		 */
 		return false;
@@ -121,12 +153,29 @@ public class ClientApp extends Application
 		dialogStage.show();
 	}
 
+<<<<<<< HEAD
 	public static void main (String args[]) throws IOException
 	{
 		launch();
 		
 //		SocketClient sc = new SocketClient();
 //		sc.requestConnection();
+=======
+	
+
+	public static void main(String[] args) throws IOException
+	{
+		launch();
+
+		//ROGMsgGui.launch(ROGMsgGui.class); //dont believe this is needed anymore?
+
+		
+	}
+
+	public static ObservableList<User> get_userListCpy() {
+		// TODO Auto-generated method stub
+		return null;
+>>>>>>> c80a37a6b7aab3569f3702983cdb32c0a50352b4
 	}
 
 }
