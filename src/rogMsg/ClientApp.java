@@ -23,7 +23,7 @@ public class ClientApp extends Application
 {
 	private static User _currentUser;
 	private static ArrayList<User> _userList;
-	private static ArrayList<User> _userListCpy;
+	private static ArrayList<User> _userListCpy; //this is extraneous, delete
 
 	/**
 	 * Returns a copy of the user.

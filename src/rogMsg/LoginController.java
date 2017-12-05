@@ -2,6 +2,8 @@ package rogMsg;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -39,7 +41,23 @@ public class LoginController implements Initializable
 				dialogStage.setScene(scene);
 				ChatWindowController chat = loader.getController();
 				chat.setUserList(ClientApp.getUsrList());
-				chat.setLstList(Lists.getListSquared());
+				
+				List<Lst> ll = new ArrayList<>(); //making the list here because getting it from Lists causes
+				Lst one = new Lst("Who's presenting today.", null, new ArrayList<>());
+				one.addItem("Cletus");
+				one.addItem("Ash");
+				ll.add(one);
+				
+				Lst two = new Lst("Grocery list", null, new ArrayList<>());
+				two.setName("Milk");
+				two.addItem("Eggs");
+				two.addItem("Bread");
+				two.addItem("Toothpaste");
+				ll.add(two);
+				
+//				chat.setLstList(Lists.getListSquared());
+				chat.setLstList(ll);
+				
 				chat.setPollList(Polls.getPollList());
 				chat.setMessages(Messaging.getMsgHistory());
 				chat.setStage(dialogStage);
