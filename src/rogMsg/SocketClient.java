@@ -28,18 +28,6 @@ public class SocketClient {
 	 * in the future we will want to make it receive a new port in order...
 	 *  to set up a dedicated socket connection with the server.
 	 */
-	public void requestConnection() throws UnknownHostException, IOException
-	{
-		
-		
-		Socket s = new Socket(serverAddress, serverPort);
-		
-		BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
-		
-		String severResponce = br.readLine();
-		
-		System.out.println(severResponce);
-	}
 
 	/**
 	 * Attempts to authenticate the user with the server. 
@@ -50,9 +38,12 @@ public class SocketClient {
 	 * @throws UnknownHostException
 	 * @throws IOException
 	 */
-	public User auth(String email, String pass) throws UnknownHostException, IOException {
+	public User auth(String email, String pass) throws UnknownHostException, IOException 
+	{
 		Socket s = new Socket (serverAddress, serverPort);
 		PrintWriter dataOut = new PrintWriter(new OutputStreamWriter(s.getOutputStream()));
+		
+		dataOut.println("login");
 		
 		dataOut.println(email);
 		dataOut.println(pass);
@@ -63,6 +54,7 @@ public class SocketClient {
 		
 		if(input.readLine().equals("authenticated"))
 		{
+			int port = input.read(); //read port int
 			ObjectInputStream inFromServer = new ObjectInputStream(s.getInputStream());
 			User userFromServer = new User();
 			try {
@@ -77,5 +69,39 @@ public class SocketClient {
 		return null;
 		
 	}
+	
+	public User reg(String email, String name, String pass) throws UnknownHostException, IOException
+    {
+		Socket s = new Socket (serverAddress, serverPort);
+		PrintWriter dataOut = new PrintWriter(new OutputStreamWriter(s.getOutputStream()));
+		
+		dataOut.println("register");
+		
+		dataOut.println(email);
+		dataOut.println(name);
+		dataOut.println(pass);
+		dataOut.flush();
+		
+		BufferedReader input =
+	            new BufferedReader(new InputStreamReader(s.getInputStream()));
+		
+		if(input.readLine().equals("authenticated"))
+		{
+			int port = input.read(); //read port int
+			ObjectInputStream inFromServer = new ObjectInputStream(s.getInputStream());
+			User userFromServer = new User();
+			
+			try {
+				userFromServer = (User) inFromServer.readObject();
+				return userFromServer;
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+			
+    	return null;
+    }
 
 }

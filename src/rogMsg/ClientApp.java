@@ -7,8 +7,6 @@
 package rogMsg;
 
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +35,14 @@ public class ClientApp extends Application
 		return copy;
 	}
 
+	
+	public static void main(String[] args)
+	{
+		launch();
+
+		//ROGMsgGui.launch(ROGMsgGui.class); //dont believe this is needed anymore?	
+	}
+	
 	/**
 	 * Sets the current user
 	 * @param user is the desired new current user
@@ -92,7 +98,7 @@ public class ClientApp extends Application
 		if (pass != null && email != null)
 		{
 				
-			SocketClient authConnetion = new SocketClient("localhost", 1023);
+			SocketClient authConnetion = new SocketClient("192.168.0.73", 1023);
 			
 			try {
 				User attempt = authConnetion.auth(email, pass);
@@ -122,6 +128,23 @@ public class ClientApp extends Application
 		/*
 		 * some server interaction probably goes here too
 		 */
+		if(pass.equals(conPass))
+		{
+			SocketClient regConnection = new SocketClient("192.168.0.73", 1023);
+			
+			try {
+				User newUser = regConnection.reg(email, username, pass);
+			} catch (UnknownHostException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		}
+		
 		return false;
 	}
 	
@@ -170,15 +193,6 @@ public class ClientApp extends Application
 	}
 
 	
-
-	public static void main(String[] args) throws IOException
-	{
-		launch();
-
-		//ROGMsgGui.launch(ROGMsgGui.class); //dont believe this is needed anymore?
-
-		
-	}
 
 	public static ObservableList<User> get_userListCpy() {
 		// TODO Auto-generated method stub
