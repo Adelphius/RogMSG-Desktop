@@ -98,7 +98,7 @@ public class ClientApp extends Application
 		if (pass != null && email != null)
 		{
 				
-			SocketClient authConnetion = new SocketClient("192.168.0.73", 1023);
+			SocketClient authConnetion = new SocketClient("155.42.112.159", 1023);
 			
 			try {
 				User attempt = authConnetion.auth(email, pass);
@@ -130,7 +130,7 @@ public class ClientApp extends Application
 		 */
 		if(pass.equals(conPass))
 		{
-			SocketClient regConnection = new SocketClient("192.168.0.73", 1023);
+			SocketClient regConnection = new SocketClient("155.42.112.159", 1023);
 			
 			try {
 				User newUser = regConnection.reg(email, username, pass);
