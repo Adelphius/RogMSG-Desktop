@@ -37,6 +37,7 @@ public class ChatWindowController implements Initializable
 	@FXML private ListView<User> userList;
 	@FXML private ListView<Lst> lists;
 	@FXML private ListView<Poll> polls;
+	@FXML private ListView<String> lItemViewer, pItemViewer;
 	@FXML private TabPane announcementsPane;
 	@FXML private ScrollPane announcements;
 	@FXML private TabPane extras;
@@ -58,7 +59,7 @@ public class ChatWindowController implements Initializable
 			dialogStage.setTitle("Add user to group");
 			Scene scene = new Scene(page, 300, 175);
 			dialogStage.setScene(scene);
-//			NewUserFormController userForm = loader.getController();
+			NewUserFormController userForm = loader.getController();
 			dialogStage.show();
 		}
 		else if(e.getSource().equals(logoutButton))
@@ -175,9 +176,8 @@ public class ChatWindowController implements Initializable
 			@Override
 			public void handle(MouseEvent e)
 			{
-				ListView<String> itemView = new ListView<>();
-				itemView.setItems(FXCollections.observableArrayList(lists.getSelectionModel().getSelectedItem().getItems()));
-				lViewer.getChildren().add(itemView);
+				lItemViewer.setItems(FXCollections.observableArrayList(lists.getSelectionModel().getSelectedItem().getItems()));
+				lItemViewer.setPrefHeight(200);
 			}
 		});
 		polls.setCellFactory(param -> new ListCell<Poll>()
@@ -200,9 +200,8 @@ public class ChatWindowController implements Initializable
 			@Override
 			public void handle(MouseEvent e)
 			{
-				ListView<String> itemView = new ListView<>();
-				itemView.setItems(FXCollections.observableArrayList(polls.getSelectionModel().getSelectedItem().getOptions().keySet()));
-				pViewer.getChildren().add(itemView);
+				pItemViewer.setItems(FXCollections.observableArrayList(polls.getSelectionModel().getSelectedItem().getOptions().keySet()));
+				pItemViewer.setPrefHeight(200);
 			}
 		});		
 	}

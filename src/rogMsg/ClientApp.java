@@ -22,12 +22,7 @@ import javafx.stage.Stage;
 
 public class ClientApp extends Application
 {
-<<<<<<< HEAD
-	private User _currentUser;
-=======
-
 	private static User _currentUser;
->>>>>>> c80a37a6b7aab3569f3702983cdb32c0a50352b4
 	private static ArrayList<User> _userList;
 	private static ArrayList<User> _userListCpy;
 
@@ -152,30 +147,18 @@ public class ClientApp extends Application
 		login.setStage(dialogStage);
 		dialogStage.show();
 	}
-
-<<<<<<< HEAD
+	
 	public static void main (String args[]) throws IOException
 	{
 		launch();
 		
 //		SocketClient sc = new SocketClient();
 //		sc.requestConnection();
-=======
-	
-
-	public static void main(String[] args) throws IOException
-	{
-		launch();
-
-		//ROGMsgGui.launch(ROGMsgGui.class); //dont believe this is needed anymore?
-
-		
 	}
 
 	public static ObservableList<User> get_userListCpy() {
 		// TODO Auto-generated method stub
 		return null;
->>>>>>> c80a37a6b7aab3569f3702983cdb32c0a50352b4
 	}
 
 }

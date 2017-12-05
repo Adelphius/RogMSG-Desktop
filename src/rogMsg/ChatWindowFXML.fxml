@@ -57,6 +57,7 @@
 						<children>
 							<VBox fx:id="lViewer">
 								<ListView fx:id="lists" VBox.vgrow="ALWAYS" />
+								<ListView fx:id="lItemViewer" prefHeight="0"/>
 							</VBox>
 							<HBox alignment="CENTER">
 								<Button text="New list" fx:id="newListButton" onAction="#handleButton"/>
@@ -69,6 +70,7 @@
 						<children>
 							<VBox fx:id="pViewer">
 								<ListView fx:id="polls" VBox.vgrow="ALWAYS" />
+								<ListView fx:id="pItemViewer" prefHeight="0"/>
 							</VBox>
 							<HBox alignment="CENTER">
 								<Button text="New poll" fx:id="newPollButton" onAction="#handleButton"/>

@@ -64,7 +64,6 @@ public class Lists {
 	public static void addLstToLists(Lst list)
 	{
 		_listSquared.add(list);
-=======
 
 	    if (name != null && listItems != null)
 			{
@@ -77,6 +76,5 @@ public class Lists {
 			  return list;
 	    }
 	    return null;
->>>>>>> c80a37a6b7aab3569f3702983cdb32c0a50352b4
 	}
 }
