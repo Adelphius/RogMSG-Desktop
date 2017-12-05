@@ -38,6 +38,10 @@ public class LoginController implements Initializable
 				Scene scene = new Scene(page, 800, 600);
 				dialogStage.setScene(scene);
 				ChatWindowController chat = loader.getController();
+				chat.setUserList(ClientApp.getUsrList());
+				chat.setLstList(Lists.getListSquared());
+				chat.setPollList(Polls.getPollList());
+				chat.setMessages(Messaging.getMsgHistory());
 				chat.setStage(dialogStage);
 			}
 			else

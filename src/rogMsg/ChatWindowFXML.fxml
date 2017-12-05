@@ -15,9 +15,12 @@
 	<children>
 	<VBox GridPane.columnIndex="0">
 		<children>
-			<Text text="Group Name" fx:id="groupName" textAlignment="LEFT"/>
-			<ListView fx:id="userList" VBox.vgrow="ALWAYS">
-			</ListView>
+			<Label text="Set user name:"/>
+			<TextField fx:id="userName"/>
+			<Button fx:id="setUserNameButton" text="Confirm" onAction="#handleButton"/>
+			<VBox fx:id="uViewer">
+				<ListView fx:id="userList" VBox.vgrow="ALWAYS" />
+			</VBox>
 			<HBox alignment="CENTER">
 				<children>
 					<Button text="Add user" fx:id="addUserButton" onAction="#handleButton"/>
@@ -32,6 +35,7 @@
 				<Tab fx:id="announcementsTab" text="Announcements">
 					<ScrollPane fx:id="announcements">
 						<content>
+							<VBox fx:id="announcementBox"/>
 						</content>
 					</ScrollPane>
 				</Tab>
@@ -51,8 +55,9 @@
 				<Tab text="Lists">
 					<VBox>
 						<children>
-							<ListView fx:id="lists" VBox.vgrow="ALWAYS">
-							</ListView>
+							<VBox fx:id="lViewer">
+								<ListView fx:id="lists" VBox.vgrow="ALWAYS" />
+							</VBox>
 							<HBox alignment="CENTER">
 								<Button text="New list" fx:id="newListButton" onAction="#handleButton"/>
 							</HBox>
@@ -62,8 +67,9 @@
 				<Tab text="Polls">
 					<VBox>
 						<children>
-							<ListView fx:id="polls" VBox.vgrow="ALWAYS">
-							</ListView>
+							<VBox fx:id="pViewer">
+								<ListView fx:id="polls" VBox.vgrow="ALWAYS" />
+							</VBox>
 							<HBox alignment="CENTER">
 								<Button text="New poll" fx:id="newPollButton" onAction="#handleButton"/>
 							</HBox>

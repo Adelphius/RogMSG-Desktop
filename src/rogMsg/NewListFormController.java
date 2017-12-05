@@ -55,7 +55,7 @@ public class NewListFormController implements Initializable
 				{
 					System.out.println(s);
 				}
-				Lists.createLst(listTitle.getText(), (ArrayList<String>)options);
+				Lists.createLst(listTitle.getText(), null, (ArrayList<String>)options); //audience needs to be set here
 			}
 		}
 		else
